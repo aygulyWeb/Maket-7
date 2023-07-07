@@ -1,0 +1,269 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	position: relative;
+
+	input {
+		display: none;
+	}
+	&__burger {
+		display: flex;
+		align-items: center;
+		// position: absolute;
+		// top: 20px;
+		// left: 20px;
+		width: 26px;
+		height: 26px;
+		cursor: pointer;
+		z-index: 2;
+	}
+	&__burger > span,
+	&__burger > span::before,
+	&__burger > span::after {
+		display: block;
+		position: absolute;
+		width: 26px;
+		height: 3px;
+		background-color: $headerMaincolor;
+		z-index: 3;
+		transition: 0.2s ease-in-out;
+	}
+	&__burger > span::before {
+		content: "";
+		top: -8px;
+	}
+	&__burger > span::after {
+		content: "";
+		top: 8px;
+	}
+	&__box {
+		display: block;
+		position: fixed;
+		transform: translateX(-100%);
+		transition: transform 0.5s linear;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 60px;
+		text-align: left;
+		background-color: #fff;
+		z-index: 2;
+	}
+	&__list {
+		line-height: 2.5;
+	}
+	&__link {
+		@include blockFontsfont(14px, $headerBurgerfont, $blockTextcolor, uppercase);
+	}
+	&__contacts {
+		padding-top: 105px;
+	}
+	&__mode {
+		@include blockFontsfont(10px, $headerBurgerfont, $blockTextcolor, capitalize);
+		padding-bottom: 30px;
+	}
+	&__tel {
+		font-weight: 600;
+		@include blockFontsfont(18px, $headerBurgerfont, $blockTextcolor, uppercase);
+	}
+	&__btn {
+		@include blockFontsfont(13px, $headerBurgerbtnFont, $headerMaincolor, uppercase);
+		width: 170px;
+		height: 40px;
+		border: 1px solid $headerMaincolor;
+		border-radius: 5px;
+		padding: 10px;
+	}
+	&__contact-list:nth-child(3) {
+		padding-top: 35px;
+		display: flex;
+		align-items: center;
+	}
+	&__contact-list:nth-child(4) {
+		padding-top: 25px;
+		display: flex;
+		align-items: center;
+	}
+	&__map {
+		color: $headerMaincolor;
+	}
+	&__address {
+		padding-left: 10px;
+		@include blockFontsfont(14px, $headerBurgerfont, $blockTextcolor, capitalize);
+	}
+	&__msg {
+		color: $headerMaincolor;
+	}
+	&__mail {
+		padding-left: 10px;
+		@include blockFontsfont(14px, $headerBurgerfont, $blockTextcolor, none);
+	}
+	input:checked ~ .header__burger > span {
+		transform: rotate(45deg);
+		left: 80%;
+	}
+	input:checked ~ .header__burger > span::before {
+		top: 0;
+		transform: rotate(0);
+	}
+	input:checked ~ .header__burger > span::after {
+		top: 0;
+		transform: rotate(90deg);
+	}
+	input:checked ~ .header__box {
+		transform: translateX(0);
+	}
+
+	&__users {
+		color: $headerMaincolor;
+		font-size: 20px;
+	}
+	&__shop-cart {
+		// margin-left: 20px;
+		color: $headerMaincolor;
+		font-size: 20px;
+	}
+	&__logo-text {
+		display: none;
+	}
+	&__navigation {
+		display: none;
+	}
+}
+
+@media (min-width: 320px) {
+	.nav__submenu {
+		display: none;
+	}
+}
+@media (min-width: 768px) {
+	.header {
+		&__box {
+			width: 50%;
+		}
+		input:checked ~ .header__burger > span {
+			transform: rotate(45deg);
+			left: 40%;
+		}
+		&__navigation {
+			display: none;
+		}
+		&__logotip {
+			display: flex;
+			align-items: center;
+		}
+		&__logo-text {
+			padding-left: 8px;
+			display: block;
+		}
+		&__title {
+			@include blockFontsfont(30px, $headerTitlefont, $blockTextcolor, capitalize);
+		}
+		&__subtitle {
+			@include blockFontsfont(10px, $headerBurgerfont, $blockTextcolor, lowercase);
+		}
+	}
+	.nav__submenu {
+		display: none;
+	}
+}
+@media (min-width: 991px) {
+	.header {
+		&__btn {
+			transition: 0.3s linear;
+			&:hover {
+				background-color: $headerMaincolor;
+				color: #fff;
+			}
+		}
+		&__menu {
+			display: none;
+		}
+		&__shop {
+			display: none;
+		}
+		&__contacts {
+			padding-top: 0px;
+		}
+		&__mode {
+			padding-bottom: 0px;
+		}
+
+		&__navigation {
+			display: block;
+		}
+	}
+
+	.navbar {
+		border-top: 1px solid #ccc;
+	}
+	.nav__submenu .nav__submenu-link {
+		display: block;
+		padding: 5px;
+		padding-bottom: 0;
+	}
+
+	.nav__submenu {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&-link {
+			@include blockFontsfont(14px, $headerBurgerfont, $blockTextcolor, uppercase);
+		}
+		&-menu {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0%;
+			background-color: #fff;
+			color: #000;
+			width: 100%;
+			z-index: 3;
+		}
+		&-list:nth-child(1) {
+			position: relative;
+			&:hover .nav__submenu-menu {
+				display: block;
+			}
+		}
+		.fa-chevron-down {
+			font-size: 15px;
+			padding-left: 5px;
+			color: #ccc;
+		}
+		&-link {
+			line-height: 2.5;
+		}
+
+		&-list {
+			position: relative;
+			width: 100%;
+			text-align: center;
+			transition: color 0.2s linear;
+			display: block;
+			i {
+				padding-right: 10px;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.navmenu li a:hover {
+		background-color: $headerMaincolor;
+		color: #fff;
+	}
+	.nav__submenu-menu {
+		.nav__submenu-link {
+			padding-top: 0;
+		}
+	}
+}

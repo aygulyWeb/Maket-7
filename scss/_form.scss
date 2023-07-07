@@ -1,0 +1,123 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.form {
+	margin-top: 60px;
+	position: relative;
+	&__image {
+		position: relative;
+		&:before {
+			content: "";
+			width: 100%;
+			height: 90vh;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: rgba(22, 19, 38, 0.6);
+		}
+		img {
+			width: 100%;
+			height: 90vh;
+			object-fit: cover;
+			object-position: 20%;
+		}
+	}
+	&__box {
+		// max-width: 289px;
+		position: absolute;
+		top: 10%;
+		left: 5%;
+		right: 5%;
+		// transform: translate(-50%, 50%);
+	}
+	&__question {
+		@include blockFontsfont(16px, $formQuefont, $blockTitlecolor, none);
+	}
+	&__title {
+		padding-top: 15px;
+		@include blockFontsfont(44px, $formTitlefont, $blockTitlecolor, none);
+	}
+	input {
+		width: 100%;
+		margin-top: 38px;
+		outline: none;
+		background: none;
+		border: none;
+		border-bottom: 1px solid #fff;
+		caret-color: #fff;
+		padding: 10px;
+		&:focus {
+			background: rgb(101, 80, 87, 0.5);
+		}
+	}
+	input::placeholder {
+		@include blockFontsfont(14px, $formQuefont, $blockTitlecolor, none);
+	}
+	&__button {
+		margin-top: 41px;
+		width: 100%;
+		height: 100%;
+		min-height: 48px;
+		background-color: $sliderBtncolor;
+		border-radius: 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__btn {
+		letter-spacing: 2px;
+		@include blockFontsfont(14px, $sliderDiscountfont, $blockTitlecolor, uppercase);
+	}
+	&__text {
+		padding-top: 24px;
+		line-height: 1.3;
+		@include blockFontsfont(12px, $formQuefont, $blockTitlecolor, none);
+	}
+}
+@media (min-width: 768px) {
+	.form {
+		&__reg {
+			display: flex;
+		}
+		&__box {
+			top: 20%;
+		}
+		&__image {
+			&:before {
+				height: 60vh;
+			}
+			img {
+				height: 60vh;
+				object-position: 6%;
+			}
+		}
+		&__name {
+			margin-right: 24px;
+		}
+		&__phone {
+			margin-right: 24px;
+		}
+	}
+}
+@media (min-width: 991px) {
+	.form {
+		&__reg {
+			display: flex;
+		}
+		&__box {
+			top: 20%;
+			left: 36%;
+			max-width: 763px;
+		}
+		&__image {
+			&:before {
+				height: 50vh;
+			}
+			img {
+				height: 50vh;
+				object-position: center left;
+			}
+		}
+	}
+}

@@ -1,0 +1,149 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.pizza-slider {
+	&__item {
+		box-shadow: 0px 0px 10px #cecaca;
+		border-radius: 10px;
+		text-align: center;
+		opacity: 0.4;
+		margin: 20px;
+		position: relative;
+		overflow: hidden;
+	}
+	.slick-center {
+		opacity: 1;
+	}
+	&__discount {
+		position: absolute;
+		top: 10%;
+		left: 60%;
+		transform: translate(50%, -50%);
+		align-self: center;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		box-shadow: 0px 0px 15px #ccc;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.fire {
+		background-color: $sliderDiscountcolor;
+	}
+
+	&__skidka {
+		text-align: center;
+		@include blockFontsfont(14px, $sliderNumfont, $blockTitlecolor, uppercase);
+	}
+	&__image {
+		// max-width: 255px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__subtitle {
+		padding-top: 20px;
+		@include blockFontsfont(20px, $sliderDiscountfont, $blockTextcolor, capitalize);
+	}
+	&__info {
+		padding-top: 24px;
+		@include blockFontsfont(12px, $sliderInfofont, $blockTextcolor, capitalize);
+	}
+	&__numbers {
+		padding-top: 30px;
+		i {
+			margin: 10px;
+			border: 1px solid;
+			padding: 3px;
+			border-radius: 50%;
+			font-size: 8px;
+		}
+	}
+	&__price {
+		@include blockFontsfont(22px, $sliderNumfont, $blockTextcolor, capitalize);
+	}
+	&__num {
+		@include blockFontsfont(14px, $sliderInfofont, $blockTextcolor, capitalize);
+	}
+	&__button {
+		margin-top: 30px;
+		padding-bottom: 34px;
+		.fa-shopping-cart {
+			padding-left: 10px;
+		}
+	}
+	&__btn {
+		width: 100%;
+		height: 100%;
+		background-color: $sliderBtncolor;
+		border-radius: 5px;
+		padding: 11px 36px;
+		@include blockFontsfont(14px, $sliderDiscountfont, $blockTitlecolor, uppercase);
+	}
+}
+@media (min-width: 481px) {
+	.pizza-slider {
+		&__item {
+			opacity: 1;
+		}
+		.slick-center {
+			opacity: 0;
+		}
+		& .slick-arrow {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			position: absolute;
+			top: 107%;
+			cursor: pointer;
+			z-index: 5;
+			font-size: 16px;
+			width: 40px;
+			height: 40px;
+			color: $sliderArrowcolor;
+		}
+		.fa-arrow-left {
+			left: 30%;
+		}
+		.fa-arrow-right {
+			right: 30%;
+		}
+		.dots-style {
+			text-align: center;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			list-style: none;
+			position: absolute;
+			top: 110%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+
+			& button {
+				margin-left: 18px;
+				margin-right: 18px;
+				border: none;
+				border-radius: 50%;
+				background-color: #ccc;
+				width: 10px;
+				height: 10px;
+				font-size: 0;
+				outline: none;
+				cursor: pointer;
+				transition: 0.2s ease;
+			}
+
+			& li[class="slick-active"] button {
+				background-color: $sliderDotscolor;
+				border-color: $sliderDotscolor;
+			}
+		}
+	}
+}

@@ -1,0 +1,208 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.main-slider {
+	&__item {
+		position: relative;
+	}
+	.dots-style {
+		padding-top: 18px;
+		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		list-style: none;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		overflow: hidden;
+
+		& button {
+			margin-left: 12px;
+			margin-right: 12px;
+			border: 2px solid #ccc;
+			background-color: transparent;
+			border-radius: 50%;
+			width: 15px;
+			height: 15px;
+			font-size: 0;
+			outline: none;
+			cursor: pointer;
+			transition: 0.2s ease;
+		}
+
+		& li[class="slick-active"] button {
+			background-color: $sliderDotscolor;
+			border-color: $sliderDotscolor;
+		}
+	}
+	&__box {
+		display: flex;
+		padding-left: 15px;
+		padding-right: 15px;
+		position: absolute;
+		top: 20%;
+		left: 0%;
+		z-index: 1;
+		// transform: translate(-50%, -50%);
+	}
+	&__title {
+		@include blockFontsfont(49px, $headerLogofont, $sliderTitelcolor, capitalize);
+	}
+	&__mode {
+		padding-top: 26px;
+		@include blockFontsfont(12px, $sliderModefont, $blockTitlecolor, capitalize);
+	}
+	&__discount {
+		align-self: center;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		background-color: $sliderDiscountcolor;
+		display: flex;
+		align-items: center;
+		padding-right: 10px;
+	}
+	&__skidka {
+		text-align: center;
+		padding: 5px;
+		@include blockFontsfont(14px, $sliderDiscountfont, $blockTitlecolor, uppercase);
+	}
+	&__button {
+		display: none;
+	}
+}
+@media (min-width: 320px) {
+	.main-slider {
+		&__picture {
+			width: 100%;
+			height: 50vh;
+			object-fit: cover;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.main-slider {
+		.dots-style {
+			padding-top: 0px;
+			position: absolute;
+			top: 85%;
+		}
+		&__picture {
+			width: 100%;
+			height: 70vh;
+			object-fit: cover;
+		}
+		&__box {
+			max-width: 500px;
+		}
+		&__discount {
+			width: 80px;
+			height: 80px;
+			align-self: flex-start;
+			justify-content: space-between;
+			align-items: center;
+			padding-right: 10px;
+		}
+		&__skidka {
+			padding: 10px;
+		}
+		&__button {
+			margin-top: 30px;
+			display: block;
+			max-width: 186px;
+			min-height: 56px;
+			border-radius: 5px;
+			background-color: $sliderBtncolor;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&__btn {
+			display: block;
+			@include blockFontsfont(16px, $sliderBtnfont, $blockTitlecolor, uppercase);
+		}
+		&__title {
+			font-size: 72px;
+		}
+		&__mode {
+			font-size: 18px;
+		}
+	}
+}
+
+@media (min-width: 991px) {
+	.main-slider {
+		& .slick-arrow {
+			position: absolute;
+			top: 50%;
+			cursor: pointer;
+			z-index: 5;
+			font-size: 20px;
+			color: $blockTitlecolor;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.fa-angle-left {
+			left: 10%;
+		}
+		.fa-angle-right {
+			right: 10%;
+		}
+		.dots-style {
+			& button {
+				width: 10px;
+				height: 10px;
+			}
+		}
+		&__picture {
+			width: 100%;
+			height: 70vh;
+			object-fit: cover;
+		}
+		&__box {
+			width: 50%;
+			left: 0%;
+			transform: translate(50%, 0%);
+		}
+		&__discount {
+			width: 80px;
+			height: 80px;
+			align-self: flex-start;
+			justify-content: space-between;
+			align-items: center;
+			padding-right: 10px;
+		}
+		&__skidka {
+			padding: 10px;
+		}
+		&__button {
+			margin-top: 30px;
+			display: block;
+			max-width: 186px;
+			min-height: 56px;
+			border-radius: 5px;
+			background-color: $sliderBtncolor;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&__btn {
+			display: block;
+			@include blockFontsfont(16px, $sliderBtnfont, $blockTitlecolor, uppercase);
+		}
+		&__title {
+			font-size: 72px;
+		}
+		&__mode {
+			font-size: 18px;
+		}
+	}
+}

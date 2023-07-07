@@ -1,0 +1,80 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.new-wrap {
+	margin-top: 115px;
+	background-image: url("../images/new-bg-image.webp");
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
+.tabs {
+	padding-top: 64px;
+	padding-bottom: 64px;
+	&-triggers {
+		margin-top: 56px;
+		&__item {
+			padding-left: 25px;
+			// padding-right: 70px;
+			transition: 0.5s linear;
+			@include blockFontsfont(18px, $newTabsfont, $newTabscolor, capitalize);
+		}
+	}
+	&-content {
+		padding-top: 56px;
+		&__item {
+			display: none;
+		}
+	}
+	.tabs-triggers__item--active {
+		color: $sliderDiscountcolor;
+	}
+
+	.tabs-content__item--active {
+		display: block;
+	}
+
+	.rolls-slider__ribbon {
+		position: absolute;
+		top: 15px;
+		left: -45px;
+		background-color: $ribbonColor;
+		height: 30px;
+		width: 150px;
+		transform: rotate(-45deg);
+		text-align: center;
+		color: $blockTitlecolor;
+		font-family: $sliderNumfont;
+	}
+	.pizza-slider__ribbon {
+		position: absolute;
+		top: 15px;
+		left: -45px;
+		background-color: $pizzaRibboncolor;
+		height: 30px;
+		width: 150px;
+		transform: rotate(-45deg);
+		text-align: center;
+		color: $blockTitlecolor;
+		font-family: $sliderNumfont;
+	}
+}
+
+@media (min-width: 768px) {
+	.tabs {
+		padding-bottom: 138px;
+	}
+}
+
+@media (min-width: 991px) {
+	.tabs {
+		padding-bottom: 138px;
+		&-triggers {
+			&__item {
+				padding-right: 70px;
+			}
+		}
+	}
+}

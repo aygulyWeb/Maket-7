@@ -1,0 +1,67 @@
+// БЛОКИ
+
+@import "_header.scss";
+@import "_main-slider.scss";
+@import "_set-slider.scss";
+@import "_rolls-slider.scss";
+@import "_pizza-slider.scss";
+@import "_wok-slider.scss";
+@import "_new-slider.scss";
+@import "_reasons.scss";
+@import "_testimonials.scss";
+@import "_form.scss";
+@import "_company.scss";
+@import "_footer.scss";
+
+// ПЕРЕМЕННЫЕ
+
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.container {
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+@media (min-width: 320px) {
+	.slider__heading {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: 70px;
+		padding-bottom: 40px;
+	}
+	.slider__title {
+		padding-left: 20px;
+		padding-right: 20px;
+		@include blockFontsfont(35px, $sliderTitlefont, $sliderTitlecolor, capitalize);
+	}
+	.set__pattern {
+		max-width: 78px;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+@media (min-width: 768px) {
+	.slider__title {
+		font-size: 48px;
+	}
+}
+@media (min-width: 991px) {
+	.slider__heading {
+		padding-top: 88px;
+		padding-bottom: 56px;
+	}
+	.slider__title {
+		font-size: 60px;
+	}
+}
+
+a {
+	text-decoration: none;
+}
+li {
+	list-style-type: none;
+}

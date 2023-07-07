@@ -1,0 +1,102 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.testimonials {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__item {
+		border: 1px solid #ccc;
+		margin-top: 39px;
+		padding: 12px;
+	}
+	&__user {
+		display: flex;
+		align-items: center;
+		padding-top: 23px;
+	}
+	&__name {
+		padding-left: 15px;
+		@include blockFontsfont(15px, $userImgfont, $userImgcolor, capitalize);
+	}
+	time {
+		padding-left: 15px;
+		@include blockFontsfont(13px, $datefont, $datecolor, lowercase);
+		line-height: 1.5;
+	}
+	&__text {
+		max-width: 208px;
+		padding-top: 34px;
+		padding-bottom: 25px;
+		@include blockFontsfont(14px, $testimonialsTextfont, $blockTextcolor, none);
+	}
+	&__icons {
+		margin-top: 35px;
+		border-top: 1px solid #ccc;
+		i {
+			padding-top: 14px;
+			color: $testimonialsIconscolor;
+			padding-right: 20px;
+		}
+		span {
+			color: $userImgcolor;
+			font-weight: bold;
+			padding-right: 20px;
+		}
+	}
+	i {
+		cursor: pointer;
+	}
+
+	&__button {
+		margin-top: 18px;
+		width: 100%;
+		// height: 100%;
+		background-color: $userImgcolor;
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 11px 0px;
+	}
+
+	&__btn {
+		@include blockFontsfont(14px, $sliderDiscountfont, $blockTitlecolor, uppercase);
+	}
+}
+
+@media (min-width: 320px) {
+	.testimonials {
+		&__item:nth-child(3) {
+			display: none;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.testimonials {
+		padding-left: 20px;
+		padding-right: 20px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		&__item {
+			padding: 38px;
+		}
+	}
+}
+@media (min-width: 991px) {
+	.testimonials {
+		padding-left: 0px;
+		padding-right: 0px;
+		&__item:nth-child(3) {
+			display: block;
+		}
+		&__item {
+			padding: 45px;
+		}
+	}
+}

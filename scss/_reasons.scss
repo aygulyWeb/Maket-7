@@ -1,0 +1,124 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.reasons {
+	.slider__title {
+		text-align: center;
+	}
+	&__content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	&__item {
+		max-width: 165px;
+		padding-top: 50px;
+	}
+
+	&__text {
+		padding-top: 30px;
+		line-height: 1.5;
+		@include blockFontsfont(16px, $reasonsTextfont, $reasonsTextcolor, none);
+	}
+
+	&__button {
+		margin-top: 50px;
+		padding: 15px 96px;
+		letter-spacing: 1px;
+		border: 1px solid $reasonsBtncolor;
+		border-radius: 5px;
+		background: none;
+		@include blockFontsfont(14px, $reasonsBtnfont, $reasonsBtncolor, uppercase);
+	}
+}
+
+@media (min-width: 320px) {
+	.reasons {
+		.set__pattern {
+			display: none;
+		}
+		&__content {
+			flex-direction: column;
+		}
+		&__item:nth-child(4) {
+			display: none;
+		}
+		&__item:nth-child(5) {
+			display: none;
+		}
+	}
+	#more {
+		display: none;
+		.reasons__item:nth-child(4) {
+			display: block;
+		}
+		.reasons__item:nth-child(5) {
+			display: block;
+		}
+	}
+}
+@media (min-width: 768px) {
+	.reasons {
+		padding-left: 65px;
+		padding-right: 65px;
+		.set__pattern {
+			display: block;
+		}
+		&__button {
+			display: none;
+		}
+		&__content {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+	}
+	#more {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		.reasons__item:nth-child(4) {
+			display: block;
+		}
+		.reasons__item:nth-child(5) {
+			display: block;
+		}
+		.reasons__item:nth-child(7) {
+			margin: 0 auto;
+		}
+	}
+}
+@media (min-width: 991px) {
+	.reasons {
+		&__content {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		&__item:nth-child(4) {
+			display: block;
+		}
+		&__item:nth-child(5) {
+			display: block;
+		}
+		&__item:nth-child(6) {
+			display: none;
+		}
+		&__item:nth-child(7) {
+			display: none;
+		}
+		&__item {
+			flex: 1 0 auto;
+		}
+	}
+	#more {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+}
